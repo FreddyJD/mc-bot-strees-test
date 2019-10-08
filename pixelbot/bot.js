@@ -1,5 +1,5 @@
-const mineflayer = require('mineflayer')
-
+var mineflayer = require('mineflayer');
+var AutoAuth = require('mineflayer-auto-auth');
 if (process.argv.length < 3 || process.argv.length > 5) {
   console.log('Usage : node multiple.js <host> <port>')
   process.exit(1)
@@ -21,6 +21,9 @@ function createBot (name) {
   mineflayer.createBot({
     host: process.argv[2],
     port: parseInt(process.argv[3]),
-    username: name
+    username: name,
+    plugins: [ AutoAuth ],
+    AutoAuth: 'password',
+    version: "1.8"
   })
 }
