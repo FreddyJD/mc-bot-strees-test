@@ -12,7 +12,7 @@ function next () {
     setTimeout(() => {
       createBot(`pixelbox-bot${i}`)
       next()
-    }, 100)
+    }, 50)
   }
 }
 next()
