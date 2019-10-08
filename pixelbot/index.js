@@ -1,10 +1,11 @@
 var fs = require('fs');
-const exec = require('await-exec')
+
+const { exec } = require('child_process');
+
 var data = fs.readFileSync('./Nicks.txt', 'utf8');
 dataData = data.split('\n');
 
-Promise.all(
-  dataData.map(async (i) => {
-      await exec(`node bot.js ${i}`);
-  })
-)
+dataData.map((i) => {
+  exec(`node bot.js ${i}`);
+})
+
